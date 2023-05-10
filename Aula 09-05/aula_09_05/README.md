@@ -10,9 +10,13 @@ Controller: Variável que controla um field, é através dela que podemos acessa
 
 # Restrições do TextField
 MaxLength: Define um tamanho máximo para o input.
+
 Validator: Cria uma validação para um campo do formulário.
+
 KeyboardType: Define o tipo de input que o campo espera receber, por exemplo números.
+
 inputFormattes: Podemos definir quais inputs são permitidos e quais não no nosso campo.
+
 RegExp: São expressões regulares que podemos criar explicitando quais são os caracteres que serão validados no nosso inputFormattes.
 
 # Pub.Dev
