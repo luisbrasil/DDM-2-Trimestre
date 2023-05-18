@@ -56,7 +56,9 @@ class _ContatoListaState extends State<ContatoLista> {
     return ItemLista(
       contato: contato, 
       alterar: () {
-        Navigator.pushNamed(context, Rota.contatoForm); 
+        Navigator.pushNamed(context, Rota.contatoForm, arguments: contato).
+        then((value) => buscarContatos()); 
+        
       },
       detalhes: (){
         Navigator.pushNamed(context, Rota.contatoDetalhe);

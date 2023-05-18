@@ -8,12 +8,21 @@ import 'package:aula_18_05/view/widget/campo_nome.dart';
 import 'package:aula_18_05/view/widget/campo_telefone.dart';
 import 'package:aula_18_05/view/widget/campo_url.dart';
 
-class ContatoForm extends StatelessWidget{
+class ContatoForm extends StatefulWidget{
   ContatoForm({Key? key}) : super(key: key);
+
+  @override
+  State<ContatoForm> createState() => _ContatoFormState();
+}
+
+class _ContatoFormState extends State<ContatoForm> {
   final formKey = GlobalKey<FormState>();
+
   dynamic id;
+
   @override
   Widget build(BuildContext context){
+    receberContatoParaAlteracao(context);
     return Scaffold(
       appBar: AppBar(title: const Text('Cadastro')),
       body: Form(
@@ -32,9 +41,21 @@ class ContatoForm extends StatelessWidget{
   }
 
   final campoNome = CampoNome(controle: TextEditingController());
+
   final campoTelefone = CampoTelefone(controle: TextEditingController());
+
   final campoEmail = CampoEmail(controle: TextEditingController());
+
   final campoURL = CampoURL(controle: TextEditingController());
+
+  receberContatoParaAlteracao(BuildContext context){
+    var parametro = ModalRoute.of(context);
+    if(parametro != null){
+      Contato contato = parametro.settings.arguments as Contato;
+      id = contato.id;
+      preencherCampos(contato);
+    }
+  }
 
   Widget criarBotao(BuildContext context){
     return Botao(
