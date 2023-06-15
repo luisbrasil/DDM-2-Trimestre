@@ -30,7 +30,7 @@ class Conexao {
 }
 ```
 
-## classe DAO
+## Classe DAO
 
 A Classe DAO serve para interagirmos com o banco ao qual fizemos a conexão, dividimos os DAOS pelas entidades, cada entidade terá um DAO contendo os métodos que julgarmos necessários na relação com o banco, no caso é um padrão termos o CRUD(Create, Read, Update e Delete), no caso do READ, é padrão também termos uma consulta por ID que retorna um único registro e uma consultaTodos que retornará todos os registros da tabela.
 
