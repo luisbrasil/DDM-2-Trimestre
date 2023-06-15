@@ -1,11 +1,11 @@
-# Aula_01_06
+# Aula_01_06 - Persistência local
 
-## Persistência local
-
-# Classe de Conexão
+## Classe de Conexão
 
 É a classe que faz a instanciação o banco de dados atraves da conexão, no exemplo abaixo também passamos um script inicial para a criação de um tabela em específico, nesse caso o criarReview que cria a tabela criarReview, e a insercoesReview é uma lista de Inserts que são feitos quando a conexão com o banco é feita.
 
+
+```
 class Conexao {
   static late Database _database;
   static bool _fechado = true;
@@ -28,13 +28,15 @@ class Conexao {
     return _database;
   }
 }
+```
 
-# classe DAO
+## classe DAO
 
 A Classe DAO serve para interagirmos com o banco ao qual fizemos a conexão, dividimos os DAOS pelas entidades, cada entidade terá um DAO contendo os métodos que julgarmos necessários na relação com o banco, no caso é um padrão termos o CRUD(Create, Read, Update e Delete), no caso do READ, é padrão também termos uma consulta por ID que retorna um único registro e uma consultaTodos que retornará todos os registros da tabela.
 
 Segue o exemplo do CRUD da entidade Review, que utilizamos na classe de Conexão
 
+```
 import 'package:oktopus/database/sqlite/conexao.dart';
 import 'package:oktopus/view/dto/review.dart';
 import 'package:oktopus/view/interface/review_interface_dao.dart';
@@ -98,5 +100,6 @@ class ReviewDAOSQLite implements ReviewInterfaceDao {
         estrelas: resultado['estrelas']);
   }
 }
+```
 
 Nota-se que podemos escrever comandos em SQL específicos em uma string e utiliza-los nas nossas chamadas ao banco, nesse caso utilizando a extensão do SQLite para o Dart.
